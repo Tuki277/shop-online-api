@@ -93,6 +93,7 @@ const getProduct = async (req, res, next) => {
 
 const updateProduct = async (req, res, next) => {
     const { postProductID } = req.params
+    console.log(postProductID)
     const updateProductByID = req.body
     const result = await postProduct.findByIdAndUpdate(postProductID, updateProductByID)
     return res.status(200).json({ success : true })
@@ -100,6 +101,33 @@ const updateProduct = async (req, res, next) => {
 
 const deleteProduct = async (req, res, next) => {
     const { postProductID } = req.params
+
+    console.log(postProductID)
+
+    // get product
+    const product = await postProduct.findById(postProductID)
+    const ownerID = product.owner
+
+    console.log(product)
+
+    console.log(ownerID)
+
+    //get category n update
+
+    const owner = await postCategory.findById(ownerID)
+
+    console.log(owner)
+
+    //remove product
+    await product.remove()
+
+    //remove product from list category
+
+    owner.products.pull(product)
+    await owner.save()
+
+    return res.status(200).json({ success : true })
+
 }
 
 module.exports = {

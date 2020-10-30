@@ -10,7 +10,7 @@ router.route('/:postCategoryID')
     .delete(adminControllers.deleteCategory)
     .patch(adminControllers.updateCategory)
 
-router.route('/:postProductID')
+router.route('/change/:postProductID')
     .delete(adminControllers.deleteProduct)
     .patch(adminControllers.updateProduct)
 
