@@ -77,6 +77,7 @@ const newPostProduct = async (req, res, next) => {
 
 }
 
+
 const getAllProduct = async (req, res, next) => {
     const products = await postProduct.find({})
     return res.status(200).json({ products })

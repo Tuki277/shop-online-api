@@ -6,7 +6,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 var apiRouterAdmin = require('./api/routers/admin');
 var apiRouterShop = require('./api/routers/shop')
 var database = require('./config/database')
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/api/admin', apiRouterAdmin);
 app.use('/api/shop', apiRouterShop);
 

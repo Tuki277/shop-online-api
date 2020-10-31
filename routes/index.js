@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var shopController = require('../controllers/shop')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', shopController.index);
 
-module.exports = router;
+router.get('/about', shopController.about)
+
+router.get('/contact', shopController.contact)
+
+router.get('/shop', shopController.shop)
+
+router.get('/thankyou', shopController.thankyou)
+
+module.exports = router
+

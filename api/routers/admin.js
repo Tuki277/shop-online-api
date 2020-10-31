@@ -18,4 +18,6 @@ router.route('/:postCategoryID/postProduct')
     .get(adminControllers.getAllProductByID) 
     .post(adminControllers.newPostProduct) // chỗ này chưa hợp lý lắm, cần xem lại
 
+//router.post('/addProduct', adminControllers.newPostProduct) // chỗ này cần chỉnh sửa lại
+
 module.exports = router;
