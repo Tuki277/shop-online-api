@@ -8,16 +8,24 @@ const postProduct = new Schema({
     },
     size : {
         type : Number,
-        required : true
+        require : true
     },
     detail : {
         type : String,
-        required : true
+        require : true
     },
     price : {
         type : Number,
-        required : true
+        require : true
     },
+    image1 : {
+        type : String,
+        require : true
+    },
+    /*list : {
+        type : String,
+        require : true
+    },*/
     owner : {
         type : Schema.Types.ObjectId,
         ref: 'postCategory'

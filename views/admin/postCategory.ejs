@@ -34,25 +34,25 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="x_content">
-						<form class="form-horizontal form-label-left" action="/postCategory" enctype="multipart/form-data" method="POST">
+						<form class="form-horizontal form-label-left" action="/admin/postCategory" enctype="multipart/form-data" method="POST">
 							<div class="form-group row">
-								<label class="control-label col-md-3" for="list" >Danh mục<span class="required">*</span>
+								<label class="control-label col-md-3" for="name" >Danh mục<span class="required">*</span>
 								</label>
 								<div class="col-md-12">
-									<input type="text" required name="list" class="form-control col-md-7 ">
+									<input type="text" required name="name" class="form-control col-md-7 ">
 								</div>
                             
-								<label class="control-label col-md-3" for="name_crate" >Người tạo<span class="required">*</span>
+								<label class="control-label col-md-3" for="author" >Người tạo<span class="required">*</span>
 								</label>
 								<div class="col-md-12">
-									<input type="text" required name="name_crate" class="form-control col-md-7 ">
+									<input type="text" required name="author" class="form-control col-md-7 ">
 								</div>
-              </div>
-              <br>
-              <input type="file" name="img1">
-              <br>
-              <br>
-              <button type="submit" class="btn btn-primary">Tạo Sản Phẩm Mới</button>
+                                </div>
+                                <br>
+                                <input type="file" name="image">
+                                <br>
+                                <br>
+                                <button type="submit" class="btn btn-primary">Tạo Sản Phẩm Mới</button>
 						</form>
 					</div>
 				</div>

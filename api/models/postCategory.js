@@ -4,7 +4,15 @@ const Schema = mongoose.Schema
 const postCategory = new Schema({
     name : {
         type : String,
-        required : true
+        require : true
+    },
+    author : {
+        type : String,
+        require : true
+    },
+    image : {
+        type : String,
+        require : true
     },
     products : [{
         type: Schema.Types.ObjectId,
