@@ -2,6 +2,8 @@ const c = require('config')
 const Category = require('../api/models/postCategory')
 const Product = require('../api/models/postProduct')
 
+//Category
+
 const postCategory = async (req, res, next) => {
     res.render('admin/postCategory')
 }
@@ -28,6 +30,7 @@ const addCategory = async (req, res, next) => {
     res.redirect('/admin/postCategory')
 }
 
+//Product
 
 const postProduct = async (req, res, next) => {
     const Categories = await Category.find().lean()
@@ -65,9 +68,14 @@ const addProduct = async (req, res, next) => {
 
 }
 
+const adminHome = async (req, res, next) => {
+    res.render('admin/adminSite')
+}
+
 module.exports = {
     postCategory,
     postProduct,
     addCategory,
-    addProduct
+    addProduct,
+    adminHome
 }

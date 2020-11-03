@@ -15,4 +15,6 @@ router.route('/postProduct')
     .get(adminRouter.postProduct)
     .post(upload, adminRouter.addProduct)
 
+router.get('/', adminRouter.adminHome)
+
 module.exports = router;
