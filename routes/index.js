@@ -6,17 +6,19 @@ router.get('/', shopController.index);
 
 router.get('/about', shopController.about)
 
+router.get('/add-to-cart/:id', shopController.addToCart)
+
+router.get('/cart', shopController.Cart)
+
 router.get('/contact', shopController.contact)
+
+router.get('/checkout', shopController.checkout)
 
 router.get('/detail/:id', shopController.detailProduct)
 
 router.get('/shop', shopController.shop)
 
 router.get('/thankyou', shopController.thankyou)
-
-router.get('/cart', shopController.Cart)
-
-router.get('/add-to-cart/:id', shopController.addToCart)
 
 module.exports = router
 

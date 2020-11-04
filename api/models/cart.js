@@ -8,7 +8,7 @@ module.exports = function Cart(cart) {
         if (!cartItem) {
             cartItem = this.items[id] = {item: item, quantity: 0, price: 0};
         }
-        console.log(item);
+        // console.log(item);
         cartItem.quantity++;
         cartItem.price = cartItem.item.price * cartItem.quantity;
         this.totalItems++;
