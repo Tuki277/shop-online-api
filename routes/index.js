@@ -8,6 +8,8 @@ router.get('/about', shopController.about)
 
 router.get('/contact', shopController.contact)
 
+router.get('/detail/:id', shopController.detailProduct)
+
 router.get('/shop', shopController.shop)
 
 router.get('/thankyou', shopController.thankyou)

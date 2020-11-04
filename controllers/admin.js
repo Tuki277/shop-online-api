@@ -33,8 +33,9 @@ const addCategory = async (req, res, next) => {
 //Product
 
 const postProduct = async (req, res, next) => {
-    const Categories = await Category.find().lean()
-    res.render('admin/postProduct', { Category : Categories })
+    // const Categories = await Category.find().lean()
+    const Products = await Product.find().lean().sort()
+    res.render('admin/postProduct', { Products : Products })
 }
 
 const addProduct = async (req, res, next) => {
