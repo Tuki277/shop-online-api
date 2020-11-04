@@ -10,11 +10,22 @@ var adminRouter = require('./routes/admin');
 var apiRouterAdmin = require('./api/routers/admin');
 var apiRouterShop = require('./api/routers/shop')
 var database = require('./config/database')
+var session = require("express-session");
+var MongoStore = require('connect-mongodb-session')(session);
 
 var app = express();
 
 //connect database
 database()
+
+//session
+app.use(session({
+    secret: "This is secret bro!",
+    resave: false,
+    saveUninitialized: false,
+    // store: new MongoStore({mongoConnection: mongo.connection}),
+    cookie: { maxAge: 60 * 60 * 1000 }
+  }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

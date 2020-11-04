@@ -49,9 +49,11 @@
                                     <li><a href="/admin"><span class="icon icon-person"></span></a></li>
                                     <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                     <li>
-                                        <a href="cart.html" class="site-cart">
+                                        <a href="/cart" class="site-cart">
                                             <span class="icon icon-shopping_cart"></span>
-                                            <span class="count">2</span>
+                                            <% if (session.cart) { %>
+                                            <span class="count"><%= session.cart.totalItems %></span>
+                                            <% } %>
                                         </a>
                                     </li>
                                     <li class="d-inline-block d-md-none ml-md-0"><a href="#"

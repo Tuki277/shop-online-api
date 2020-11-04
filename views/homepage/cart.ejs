@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -89,63 +89,87 @@
         <div class="bg-light py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong
-                            class="text-black">Tank Top T-Shirt</strong></div>
+                    <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                            class="text-black">Cart</strong></div>
                 </div>
             </div>
         </div>
 
         <div class="site-section">
             <div class="container">
-                <% if (Products) { %>
+                <div class="row mb-5">
+                    <form class="col-md-12" method="post">
+                        <div class="site-blocks-table">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">Image</th>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-price">Size</th>
+                                        <th class="product-total">Quantity</th>
+                                        <th class="product-remove">Remove</th>
+                                        <th class="product-price">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(cartProduct != null){ cartProduct.forEach(function(item){ %>
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <img src="<%= item.item.image1 %>" alt="Image" class="img-fluid">
+                                        </td>
+                                        <td class="product-name">
+                                            <h2 class="h5 text-black"><%= item.item.name %></h2>
+                                        </td>
+                                        <td><%= item.item.size %></td>
+                                        <td><%= item.quantity %></td>
+                                        <td><%= item.item.price %></td>
+                                        <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+                                    </tr>
+                                    <% })} %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../<%= Products.image1 %>" alt="Image" class="img-fluid">
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h2 class="text-black"><%= Products.name %></h2>
-                        <p><%= Products.detail %></p>
-                        <p><strong class="text-primary h4"><%= Products.price %> VND</strong></p>
-                        <!-- <div class="mb-1 d-flex">
-                    <label for="option-sm" class="d-flex mr-3 mb-3">
-                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
-                                id="option-sm" name="shop-sizes"></span> <span
-                            class="d-inline-block text-black">Small</span>
-                    </label>
-                    <label for="option-md" class="d-flex mr-3 mb-3">
-                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
-                                id="option-md" name="shop-sizes"></span> <span
-                            class="d-inline-block text-black">Medium</span>
-                    </label>
-                    <label for="option-lg" class="d-flex mr-3 mb-3">
-                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
-                                id="option-lg" name="shop-sizes"></span> <span
-                            class="d-inline-block text-black">Large</span>
-                    </label>
-                    <label for="option-xl" class="d-flex mr-3 mb-3">
-                        <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"
-                                id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra
-                            Large</span>
-                    </label>
-                </div> -->
-                        <div class="mb-5">
-                            <div class="input-group mb-3" style="max-width: 120px;">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                    <div class="col-md-6 pl-5">
+                        <div class="row justify-content-end">
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-12 text-right border-bottom mb-5">
+                                        <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control text-center" value="1" placeholder=""
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                
+                                <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <span class="text-black">Total</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <% if (session.cart) { %>
+                                            <strong class="text-black"><%= session.cart.totalPrice %> VND</strong>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-lg py-3 btn-block"
+                                            onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <p><a href="/add-to-cart/<%= Products._id %>" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
-
                     </div>
                 </div>
-                <% } %>
             </div>
         </div>
 
@@ -184,7 +208,7 @@
                     <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                         <h3 class="footer-heading mb-4">Promo</h3>
                         <a href="#" class="block-6">
-                            <img src="../images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
+                            <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
                             <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
                             <p>Promo from nuary 15 &mdash; 25, 2019</p>
                         </a>
@@ -231,15 +255,15 @@
         </footer>
     </div>
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/jquery-ui.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/aos.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
 
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
