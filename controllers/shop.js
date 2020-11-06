@@ -1,5 +1,6 @@
 const cart = require('../api/models/cart')
 const Product = require('../api/models/postProduct')
+const hoaDon = require('../api/models/hoaDon')
 
 const index = async (req, res, next) => {
     res.render('homepage/index', { session : req.session })
@@ -28,7 +29,7 @@ const contact = async (req, res, next) => {
 }
 
 const thankyou = async (req, res, next) => {
-    res.render('homepage/thankyou')
+    res.render('homepage/thankyou', { session : req.session })
 }
 
 const addToCart = async (req, res, next) => {
@@ -51,12 +52,44 @@ const Cart = async (req, res, next) => {
     const Products = await Product.findOne({ _id: req.params.id }).lean()
     const Cart = new cart(req.session.cart)
     const cartProduct = Cart.getItems()
-    // console.log(cartProduct)
+    console.log(cartProduct)
     res.render('homepage/cart', { Products : Products, session : req.session, cartProduct : cartProduct })
 }
 
 const checkout = async (req, res, next) => {
+    console.log(req.session.cart)
     res.render('homepage/checkout', { session : req.session })
+}
+
+const checkoutProducts = async (req, res, next) => {
+
+    // console.log(req.body)
+    // console.log(req.session.cart)
+
+    const {
+        name,
+        phone,
+        address,
+        email,
+        orderNote
+    } = req.body
+
+    const cart = req.session.cart
+
+    const newCheckOut = {
+        name : name,
+        phone : phone,
+        address : address,
+        email : email,
+        orderNote : orderNote,
+        cart : cart
+    }
+
+
+
+    const checkOut = new hoaDon(newCheckOut)
+    console.log(checkOut)
+    checkOut.save()
 }
 
 module.exports = {
@@ -68,5 +101,6 @@ module.exports = {
     thankyou,
     Cart,
     addToCart,
-    checkout
+    checkout,
+    checkoutProducts
 }

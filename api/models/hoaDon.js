@@ -14,10 +14,19 @@ const checkOut = new Schema ({
         type : String,
         require : true
     },
-    productsBuy : [{
+    email : {
+        type : String
+    },
+    cart : {
+        type: Object
+    },
+    orderNote : {
+        type : String
+    }
+    /*productsBuy : [{
         type: Schema.Types.ObjectId,
         ref: 'postProduct'
-    }]
+    }]*/
 })
 
 const UserCheckOut = mongoose.model('checkout', checkOut)

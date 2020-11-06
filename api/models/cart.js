@@ -22,10 +22,11 @@ module.exports = function Cart(cart) {
     };
 
     this.getItems = function() {
-        var arr = [];
+        const arr = [];
         for (var id in this.items) {
             arr.push(this.items[id]);
         }
+        // const object = Object.assign({}, arr)
         return arr;
     };
 };

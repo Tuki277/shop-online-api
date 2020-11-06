@@ -12,7 +12,9 @@ router.get('/cart', shopController.Cart)
 
 router.get('/contact', shopController.contact)
 
-router.get('/checkout', shopController.checkout)
+router.route('/checkout')
+    .get(shopController.checkout)
+    .post(shopController.checkoutProducts)
 
 router.get('/detail/:id', shopController.detailProduct)
 

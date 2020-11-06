@@ -1,6 +1,7 @@
 const c = require('config')
-const Category = require('../api/models/postCategory')
 const Product = require('../api/models/postProduct')
+const hoaDon = require('../api/models/hoaDon')
+const cart = require('../api/models/cart')
 
 //Category
 
@@ -73,10 +74,17 @@ const adminHome = async (req, res, next) => {
     res.render('admin/adminSite')
 }
 
+const baoCao = async (req, res, next) => {
+    const muaHang = await hoaDon.find().lean()
+    console.log(muaHang)
+    res.render('admin/baocao', { muaHang : muaHang })
+}
+
 module.exports = {
     postCategory,
     postProduct,
     addCategory,
     addProduct,
-    adminHome
+    adminHome,
+    baoCao
 }
