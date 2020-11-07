@@ -93,6 +93,7 @@ const checkoutProducts = async (req, res, next) => {
     const checkOut = new hoaDon(newCheckOut)
     console.log(checkOut)
     checkOut.save()
+    res.render('/thankyou')
 }
 
 module.exports = {
