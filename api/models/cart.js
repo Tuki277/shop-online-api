@@ -6,8 +6,9 @@ module.exports = function Cart(cart) {
     this.add = function(item, id) {
         var cartItem = this.items[id];
         if (!cartItem) {
-            cartItem = this.items[id] = {item: item, quantity: 0, price: 0};
+            cartItem = this.items[id] = { item : item, quantity: 0, price: 0};
         }
+        cartItem.item
         // console.log(item);
         cartItem.quantity++;
         cartItem.price = cartItem.item.price * cartItem.quantity;

@@ -49,7 +49,8 @@
                                             <td><%= muaHang[i].address %></td>
                                             <td><%= muaHang[i].phone %></td>
                                             <td><%= muaHang[i].cart.totalItems %></td>
-                                            <td><%= muaHang[i].cart.items %></td>
+                                            <!-- <td><%= muaHang[0].cart.items %></td> -->
+                                            <td><%- JSON.stringify(muaHang) %></td>
                                             <td><%= muaHang[i].cart.totalPrice %></td>
                                             <td><%= muaHang[i].orderNote %></td>
                                         </tbody>

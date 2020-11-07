@@ -18,7 +18,7 @@ const checkOut = new Schema ({
         type : String
     },
     cart : {
-        type: Object
+        type: Array
     },
     orderNote : {
         type : String
