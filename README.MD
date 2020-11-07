@@ -12,3 +12,5 @@
     </select>
 </div>
 
+// báo cáo lỗi
+// thiếu chức năng sửa xóa của web

@@ -58,7 +58,10 @@ const Cart = async (req, res, next) => {
 
 const checkout = async (req, res, next) => {
     console.log(req.session.cart)
-    res.render('homepage/checkout', { session : req.session })
+    const Cart = new cart(req.session.cart)
+    const cartProduct = Cart.getItems()
+    console.log(cartProduct)
+    res.render('homepage/checkout', { session : req.session, cartProduct : cartProduct })
 }
 
 const checkoutProducts = async (req, res, next) => {
