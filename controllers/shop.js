@@ -77,7 +77,14 @@ const checkoutProducts = async (req, res, next) => {
         orderNote
     } = req.body
 
-    const cart = req.session.cart
+    // const cart = req.session.cart
+    const newCart = new cart(req.session.cart)
+
+    console.log('newCart = ', newCart)
+
+    const cartSave = newCart.getItems()
+
+    console.log('cart luu vao db = ', cartSave)
 
     const newCheckOut = {
         name : name,
@@ -85,7 +92,8 @@ const checkoutProducts = async (req, res, next) => {
         address : address,
         email : email,
         orderNote : orderNote,
-        cart : cart
+        cartSave : cartSave,
+        newCart : newCart
     }
 
 
@@ -93,7 +101,7 @@ const checkoutProducts = async (req, res, next) => {
     const checkOut = new hoaDon(newCheckOut)
     console.log(checkOut)
     checkOut.save()
-    res.render('/thankyou')
+    res.redirect('/thankyou')
 }
 
 module.exports = {

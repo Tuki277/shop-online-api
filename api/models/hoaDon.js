@@ -17,11 +17,14 @@ const checkOut = new Schema ({
     email : {
         type : String
     },
-    cart : {
+    cartSave : {
         type: Array
     },
     orderNote : {
         type : String
+    },
+    newCart : {
+        type : Object
     }
     /*productsBuy : [{
         type: Schema.Types.ObjectId,
