@@ -11,6 +11,10 @@ router.route('/postCategory')
     .get(adminController.postCategory)
     .post(upload, adminController.addCategory)
 
+router.get('/edit', adminController.editProduct)
+
+router.get('/edit/:id', adminController.deleteProduct)
+
 router.route('/postProduct')
     .get(adminController.postProduct)
     .post(upload, adminController.addProduct)

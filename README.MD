@@ -17,7 +17,7 @@ bugs issue
 ---------------------------------------------------------------------------------------
 
 // báo cáo lỗi ( cần fix )
-    + thử lưu cái getcart vào rồi làm như cái templates cart xem có lấy đc ra không
+    + thử lưu cái getcart vào rồi làm như cái templates cart xem có lấy đc ra không ( đã fix được )
 
 // thiếu chức năng sửa xóa của web
 

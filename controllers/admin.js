@@ -80,11 +80,28 @@ const baoCao = async (req, res, next) => {
     res.render('admin/baocao', { muaHang : muaHang })
 }
 
+const editProduct = async (req, res, next) => {
+    const products = await Product.find().lean().sort()
+    res.render('admin/editProduct', { session : req.session, products : products })
+}
+
+const deleteProduct = async (req, res, next) => {
+
+    // console.log('day la router delete')
+    const { id } = req.params
+    // console.log('id la : ', id)
+    const Products = await Product.findOneAndDelete(id)
+    // console.log('san pham la : '  ,Products)
+    res.redirect('/admin/edit')
+}
+
 module.exports = {
     postCategory,
     postProduct,
     addCategory,
     addProduct,
     adminHome,
-    baoCao
+    baoCao,
+    editProduct,
+    deleteProduct
 }

@@ -70,6 +70,7 @@
                                             <td><%= item.item.name %> <strong class="mx-2">x</strong> 1</td>
                                             <td><%= item.item.price %> VND</td>
                                         </tr>
+                                        <% })} %>
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                                             <% if (session.cart) { %>
@@ -78,7 +79,6 @@
                                                 </td>
                                             <% } %>
                                         </tr>
-                                        <% })} %>
                                     </tbody>
                                 </table>
 
