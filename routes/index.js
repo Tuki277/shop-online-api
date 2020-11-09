@@ -1,6 +1,7 @@
 var express = require('express');
+const shop = require('../controllers/shop');
 var router = express.Router();
-var shopController = require('../controllers/shop')
+const shopController = require('../controllers/shop')
 
 router.get('/', shopController.index);
 
@@ -21,6 +22,8 @@ router.get('/detail/:id', shopController.detailProduct)
 router.get('/shop', shopController.shop)
 
 router.get('/thankyou', shopController.thankyou)
+
+router.get('/remove/:id', shopController.deleteProductFromArray)
 
 module.exports = router
 

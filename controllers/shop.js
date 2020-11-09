@@ -104,6 +104,20 @@ const checkoutProducts = async (req, res, next) => {
     res.redirect('/thankyou')
 }
 
+const deleteProductFromArray = async (req, res, next) => {
+
+    const { id } = req.params
+
+    console.log('id can xoa = ', id)
+
+    const Cart = new cart(req.session.cart ? req.session.cart : {});
+
+    Cart.remove(id);
+    req.session.cart = Cart;
+    res.redirect('/cart')
+
+}
+
 module.exports = {
     index,
     about,
@@ -114,5 +128,6 @@ module.exports = {
     Cart,
     addToCart,
     checkout,
-    checkoutProducts
+    checkoutProducts,
+    deleteProductFromArray
 }

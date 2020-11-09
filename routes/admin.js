@@ -11,19 +11,19 @@ router.route('/postCategory')
     .get(adminController.postCategory)
     .post(upload, adminController.addCategory)
 
-router.get('/edit', adminController.editProduct)
-
-router.get('/edit/:id', adminController.deleteProduct)
-
 router.route('/findUpdate/:id')
     .get(adminController.findProductUpdate)
     .post(upload, adminController.updateProduct)
 
-router.post('/update', adminController.updateProduct)
-
 router.route('/postProduct')
     .get(adminController.postProduct)
     .post(upload, adminController.addProduct)
+
+router.get('/edit', adminController.editProduct)
+
+router.get('/edit/:id', adminController.deleteProduct)
+
+router.post('/update', adminController.updateProduct)
 
 router.get('/', adminController.adminHome)
 
