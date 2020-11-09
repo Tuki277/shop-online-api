@@ -95,6 +95,49 @@ const deleteProduct = async (req, res, next) => {
     res.redirect('/admin/edit')
 }
 
+const findProductUpdate = async (req, res, next) => {
+
+    const { id } = req.params
+
+    const Products = await Product.findById(id)
+
+    res.render('admin/updateProducts', { Products : Products })
+
+}
+
+const updateProduct = async (req, res, next) => {
+
+    const { id } = req.params
+
+    console.log(id)
+
+    const {
+        name,
+        size,
+        detail,
+        price,
+    } = req.body
+
+    console.log(req.files)
+
+    // const image1 = req.files['image1'][0].path.split('\\').slice(1).join('\\')
+
+    const newProducts = {
+        name : name,
+        size : size,
+        detail : detail,
+        price : price
+        // image1 : image1
+    }
+
+    const update = await Product.findByIdAndUpdate(id, newProducts)
+
+    console.log('update san pham = ', update)
+
+    res.redirect('/admin/edit')
+
+}
+
 module.exports = {
     postCategory,
     postProduct,
@@ -103,5 +146,7 @@ module.exports = {
     adminHome,
     baoCao,
     editProduct,
-    deleteProduct
+    deleteProduct,
+    findProductUpdate,
+    updateProduct
 }

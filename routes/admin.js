@@ -15,6 +15,12 @@ router.get('/edit', adminController.editProduct)
 
 router.get('/edit/:id', adminController.deleteProduct)
 
+router.route('/findUpdate/:id')
+    .get(adminController.findProductUpdate)
+    .post(upload, adminController.updateProduct)
+
+router.post('/update', adminController.updateProduct)
+
 router.route('/postProduct')
     .get(adminController.postProduct)
     .post(upload, adminController.addProduct)
@@ -24,3 +30,5 @@ router.get('/', adminController.adminHome)
 router.get('/baocao', adminController.baoCao)
 
 module.exports = router;
+
+// update sửa sản phẩm vào deploy để m.n cùng test

@@ -53,7 +53,7 @@
                                         <td><%= products[i].detail %></td>
                                         <td><%= products[i].price %></td>
                                         <td><a href="/admin/edit/<%= products[i]._id %>" class="btn btn-primary btn-sm">X</a></td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Edit</a></td>
+                                        <td><a href="/admin/findUpdate/<%= products[i]._id %>" class="btn btn-primary btn-sm">Edit</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
