@@ -3,7 +3,8 @@ const Product = require('../api/models/postProduct')
 const hoaDon = require('../api/models/hoaDon')
 
 const index = async (req, res, next) => {
-    res.render('homepage/index', { session : req.session })
+    const Products = await Product.find().lean().sort()
+    res.render('homepage/index', { session : req.session, Products : Products })
 }
 
 const about = async (req, res, next) => {
