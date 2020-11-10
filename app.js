@@ -12,6 +12,8 @@ var apiRouterShop = require('./api/routers/shop')
 var database = require('./config/database')
 var session = require("express-session");
 var MongoStore = require('connect-mongodb-session')(session);
+require('dotenv').config()
+require('./config/cloudinary')
 
 var app = express();
 

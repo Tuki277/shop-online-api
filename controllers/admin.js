@@ -2,6 +2,13 @@ const c = require('config')
 const Product = require('../api/models/postProduct')
 const hoaDon = require('../api/models/hoaDon')
 const cart = require('../api/models/cart')
+const cloudinary = require('cloudinary').v2
+
+cloudinary.config({
+    cloud_name: 'none',
+    api_key: '381621652747451',
+    api_secret: 'FslI1DN5Eom0AWZe-9VeklvAwgQ'
+})
 
 //Category
 
@@ -41,6 +48,8 @@ const postProduct = async (req, res, next) => {
 
 const addProduct = async (req, res, next) => {
 
+    // console.log(req.body)
+
     //Create a new product
     const {
         name,
@@ -49,16 +58,19 @@ const addProduct = async (req, res, next) => {
         price,
     } = req.body
 
-    console.log(req.files)
+    // console.log(req.file)
 
-    const image1 = req.files['image1'][0].path.split('\\').slice(1).join('\\')
+    const image1 = req.file.path.split('\\').slice(1).join('\\')
+    const result = await cloudinary.uploader.upload(req.file.path)
+
+    // console.log("url = ", result.url)
 
     const newProducts = {
         name : name,
         size : size,
         detail : detail,
         price : price,
-        image1 : image1
+        image1 : result.url
     }
 
     console.log(newProducts)
@@ -66,7 +78,7 @@ const addProduct = async (req, res, next) => {
     const products = new Product(newProducts)
     products.save()
 
-    res.redirect('/admin/postProduct')
+    res.redirect( '/admin/postProduct' )
 
 }
 

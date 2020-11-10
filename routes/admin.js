@@ -3,9 +3,9 @@ const { route } = require('.');
 var router = express.Router();
 const adminController = require('../controllers/admin')
 var multer = require('multer');
-var upload = multer({ dest : './public/uploads' }).fields([{ name : 'image', maxCount : 1  },
-                                                           { name : 'image1', maxCount : 1  }])
-
+// var upload = multer({ dest : './public/uploads' }).fields([{ name : 'image', maxCount : 1  },
+                                                        //    { name : 'image1', maxCount : 1  }])
+var upload = multer({ dest : './public/uploads' }).single('image1')
 
 router.route('/postCategory')
     .get(adminController.postCategory)

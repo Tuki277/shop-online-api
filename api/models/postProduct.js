@@ -7,7 +7,7 @@ const postProduct = new Schema({
         required : true
     },
     size : {
-        type : Number,
+        type : String,
         require : true
     },
     detail : {
