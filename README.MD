@@ -12,17 +12,4 @@
     </select>
 </div>
 
-
-bugs issue
----------------------------------------------------------------------------------------
-
-// báo cáo lỗi ( cần fix )
-    + thử lưu cái getcart vào rồi làm như cái templates cart xem có lấy đc ra không ( đã fix được )
-
-// thiếu chức năng sửa xóa của web
-
-// hoàn thành chức năng sửa xóa cho sản phẩm
-
-// hoàn thành chức năng bỏ sản phẩm cho người dùng
-
 // hoàn thành chức năng login đối với admin

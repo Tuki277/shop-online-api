@@ -29,6 +29,10 @@ router.get('/', adminController.adminHome)
 
 router.get('/baocao', adminController.baoCao)
 
+router.route('/login')
+    .get(adminController.login)
+    .post(adminController.authenLogin)
+
 module.exports = router;
 
 // update sửa sản phẩm vào deploy để m.n cùng test

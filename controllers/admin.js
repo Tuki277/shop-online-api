@@ -2,6 +2,7 @@ const c = require('config')
 const Product = require('../api/models/postProduct')
 const hoaDon = require('../api/models/hoaDon')
 const cart = require('../api/models/cart')
+const session = require('express-session')
 const cloudinary = require('cloudinary').v2
 
 cloudinary.config({
@@ -150,6 +151,21 @@ const updateProduct = async (req, res, next) => {
 
 }
 
+const login = async (req, res, next) => {
+    res.render('admin/login', { session : req.session })
+}
+
+const authenLogin = async (req, res, next) => {
+    
+    if (req.body.username === 'admin' && req.body.password === 'admin123')
+    {
+        res.redirect('/admin')
+    }
+    else {
+        res.send('<h1>Đăng nhập sai !!! </h1>')
+    }
+}
+
 module.exports = {
     postCategory,
     postProduct,
@@ -160,5 +176,7 @@ module.exports = {
     editProduct,
     deleteProduct,
     findProductUpdate,
-    updateProduct
+    updateProduct,
+    login,
+    authenLogin
 }
