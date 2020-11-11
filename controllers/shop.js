@@ -102,7 +102,7 @@ const checkoutProducts = async (req, res, next) => {
     const checkOut = new hoaDon(newCheckOut)
     console.log(checkOut)
     checkOut.save()
-    req.session.destroy()
+    req.session.destroy(null)
     res.redirect('/thankyou')
 }
 

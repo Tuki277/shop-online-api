@@ -49,7 +49,11 @@
                                             <td><%= muaHang[i].address %></td>
                                             <td><%= muaHang[i].phone %></td>
                                             <td><%= muaHang[i].newCart.totalItems %></td>
-                                            <td><%= muaHang[i].cartSave[0].item.name %></td>
+                                            <td>
+                                                <% for ( var x = 0; x < muaHang[i].cartSave.length; x++ ) { %>
+                                                <%= muaHang[i].cartSave[x].item.name %> ,
+                                                <% } %>
+                                            </td>
                                             <td><%= muaHang[i].newCart.totalPrice %></td>
                                             <td><%= muaHang[i].orderNote %></td>
                                         </tbody>
