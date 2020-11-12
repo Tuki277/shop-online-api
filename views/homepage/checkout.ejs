@@ -3,9 +3,8 @@
 <div class="bg-light py-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a
-                    href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong
-                    class="text-black">Checkout</strong></div>
+            <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a href="/cart">Cart</a>
+                <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
         </div>
     </div>
 </div>
@@ -27,8 +26,9 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="address" class="text-black">Address <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="c_address" name="address"
+                                <label for="address" class="text-black">Address <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="address" name="address"
                                     placeholder="Street address">
                             </div>
                         </div>
@@ -37,11 +37,12 @@
                             <div class="col-md-6">
                                 <label for="email" class="text-black">Email Address <span
                                         class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="c_email_address" name="email" placeholder="Email">
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Email">
                             </div>
                             <div class="col-md-6">
                                 <label for="phone" class="text-black">Phone <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="c_phone" name="phone"
+                                <input type="text" class="form-control" id="phone" name="phone"
                                     placeholder="Phone Number">
                             </div>
                         </div>
@@ -74,9 +75,9 @@
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                                             <% if (session.cart) { %>
-                                                <td class="text-black font-weight-bold " name="totalPrice">
-                                                    <strong><%= session.cart.totalPrice %></strong>
-                                                </td>
+                                            <td class="text-black font-weight-bold " name="totalPrice">
+                                                <strong><%= session.cart.totalPrice %></strong>
+                                            </td>
                                             <% } %>
                                         </tr>
                                     </tbody>
@@ -84,7 +85,7 @@
 
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-lg py-3 btn-block"
-                                        onclick="window.location='thankyou'">Place Order</button>
+                                        onclick="window.location='thankyou', check()">Place Order</button>
                                 </div>
 
                             </div>
@@ -93,7 +94,6 @@
 
                 </div>
             </div>
-            <!-- </form> -->
         </div>
     </div>
 </form>

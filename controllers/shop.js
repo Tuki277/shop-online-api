@@ -1,6 +1,7 @@
 const cart = require('../api/models/cart')
 const Product = require('../api/models/postProduct')
 const hoaDon = require('../api/models/hoaDon')
+const { emit } = require('../api/models/postProduct')
 
 const index = async (req, res, next) => {
     const Products = await Product.find().lean().sort()
@@ -97,13 +98,18 @@ const checkoutProducts = async (req, res, next) => {
         newCart : newCart
     }
 
-
-
-    const checkOut = new hoaDon(newCheckOut)
-    console.log(checkOut)
-    checkOut.save()
-    req.session.destroy(null)
-    res.redirect('/thankyou')
+    if (name == '' || name == ' ' || phone == '' || phone == ' ' || address == '' || address == ' ' || email == '' || email == ' ')
+    {
+        res.send('đặt hàng thất bại')
+    }
+    else {
+        const checkOut = new hoaDon(newCheckOut)
+        console.log(checkOut)
+        checkOut.save()
+        req.session.destroy(null)
+        res.redirect('/thankyou')
+    }
+    
 }
 
 const deleteProductFromArray = async (req, res, next) => {

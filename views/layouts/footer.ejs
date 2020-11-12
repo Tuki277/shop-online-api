@@ -32,6 +32,31 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/aos.js"></script>
+<script>
+    function check(){
+        console.log('test')
+        if ( document.getElementById('name').value == '' || document.getElementById('name').value == ' ' )
+        {
+            alert('Tên không được để trống')
+            return false
+        }
+        if ( document.getElementById('address').value == '' || document.getElementById('address').value == ' ' )
+        {
+            alert('Địa chỉ không được để trống')
+            return false
+        }
+        if ( document.getElementById('email').value == '' || document.getElementById('email').value == ' ' )
+        {
+            alert('Email không được để trống')
+            return false
+        }
+        if ( document.getElementById('phone').value == '' || document.getElementById('phone').value == ' ' )
+        {
+            alert('Số điện thoại không được để trống')
+            return false
+        }
+    }
+</script>
 
 <script src="js/main.js"></script>
 
