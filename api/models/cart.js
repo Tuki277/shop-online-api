@@ -1,5 +1,5 @@
 module.exports = function Cart(cart) {
-    this.items = cart.items || 0;
+    this.items = cart.items || {};
     this.totalItems = cart.totalItems || 0;
     this.totalPrice = cart.totalPrice || 0;
 

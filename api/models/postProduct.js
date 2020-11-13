@@ -8,19 +8,19 @@ const postProduct = new Schema({
     },
     size : {
         type : String,
-        require : true
+        required : true
     },
     detail : {
         type : String,
-        require : true
+        required : true
     },
     price : {
         type : Number,
-        require : true
+        required : true
     },
     image1 : {
         type : String,
-        require : true
+        required : true
     },
     /*list : {
         type : String,

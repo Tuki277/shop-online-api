@@ -49,7 +49,7 @@ const postProduct = async (req, res, next) => {
 
 const addProduct = async (req, res, next) => {
 
-    // console.log(req.body)
+    console.log(req.body)
 
     //Create a new product
     const {
@@ -102,9 +102,9 @@ const deleteProduct = async (req, res, next) => {
 
     // console.log('day la router delete')
     const { id } = req.params
-    // console.log('id la : ', id)
-    const Products = await Product.findOneAndDelete(id)
-    // console.log('san pham la : '  ,Products)
+    console.log('id la : ', id)
+    const Products = await Product.findByIdAndDelete(id)
+    console.log('san pham la : '  ,Products)
     res.redirect('/admin/edit')
 }
 

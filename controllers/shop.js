@@ -54,7 +54,7 @@ const Cart = async (req, res, next) => {
     const Products = await Product.findOne({ _id: req.params.id }).lean()
     const Cart = new cart(req.session.cart)
     const cartProduct = Cart.getItems()
-    console.log(cartProduct)
+    console.log('cart product = ', cartProduct)
     res.render('homepage/cart', { Products : Products, session : req.session, cartProduct : cartProduct })
 }
 
