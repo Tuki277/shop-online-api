@@ -100,7 +100,7 @@ const checkoutProducts = async (req, res, next) => {
 
     if (name == '' || name == ' ' || phone == '' || phone == ' ' || address == '' || address == ' ' || email == '' || email == ' ')
     {
-        res.send('đặt hàng thất bại')
+        res.send('<h1>đặt hàng thất bại</h1>')
     }
     else {
         const checkOut = new hoaDon(newCheckOut)
